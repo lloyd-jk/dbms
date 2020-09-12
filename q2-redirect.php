@@ -34,7 +34,8 @@ if (isset($_POST['search1'])){
     $temp=mysqli_query($conn,$sql);
     $output=mysqli_fetch_all($temp,MYSQLI_ASSOC);
     foreach ($output as $key => $value) {
-        if ($value['rollno']==$search) {
+        if((strcasecmp($value['rollno'],$search))==0){
+        // if ($value['rollno']==$search) {
             $name=$value['name'];
             $rollno=$value['rollno'];
             $dob=$value['dob'];
