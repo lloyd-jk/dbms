@@ -10,6 +10,25 @@ if (isset($_POST['search1'])){
     $search=mysqli_real_escape_string($conn,$_REQUEST['search']);
 
 
+    $name='None';
+    $rollno='None';
+    $dob='None';
+    $address='None';
+    $mobile=0;
+    $email='None';
+    $s1=0.0;
+    $s2=0.0;
+    $s3=0.0;
+    $s4=0.0;
+    $s5=0.0;
+    $s6=0.0;
+    $s7=0.0;
+    $s8=0.0;
+    $cgpa=0.0;
+    $hobbies='None';
+    $h_or_d='None';
+    $ref='None';
+
     $sql = "SELECT * FROM biodata";
 
     $temp=mysqli_query($conn,$sql);
@@ -34,47 +53,50 @@ if (isset($_POST['search1'])){
             $hobbies=$value['hobbies'];
             $h_or_d=$value['h_or_d'];
             $ref=$value['ref'];
-                }
+
+        }
     }
 
 }
 ?>
 
-
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Biodata</title>
-    <div style= "text-align:center">
-        <p style="font-size:30px">Name: <?php echo $name; ?></p> <br>
-        <p style="font-size:30px">Roll Number: <?php echo $rollno; ?></p><br>
-        <p style="font-size:30px">D.O.B: <?php echo $dob; ?></p><br>
-        <p style="font-size:30px">Address: <?php echo $address; ?></p><br>
-        <p style="font-size:30px">Mobile Number: <?php echo $mobile; ?></p><br>
-        <p style="font-size:30px">Email ID: <?php echo $email; ?></p><br>
-        <p style="font-size:30px">Semester Wise SGPA's:</p><br>
-        <p style="font-size:25px">Semester 1: <?php echo $s1; ?></p><br>
-        <p style="font-size:25px">Semester 2: <?php echo $s2; ?></p><br>
-        <p style="font-size:25px">Semester 3: <?php echo $s3; ?></p><br>
-        <p style="font-size:25px">Semester 4: <?php echo $s4; ?></p><br>
-        <p style="font-size:25px">Semester 5: <?php echo $s5; ?></p><br>
-        <p style="font-size:25px">Semester 6: <?php echo $s6; ?></p><br>
-        <p style="font-size:25px">Semester 7: <?php echo $s7; ?></p><br>
-        <p style="font-size:25px">Semester 8: <?php echo $s8; ?></p><br>
-        <p style="font-size:30px">CGPA: <?php echo $cgpa; ?></p><br>
-        <p style="font-size:30px">Hobbies: <?php echo $hobbies; ?></p><br>
-        <p style="font-size:30px">I am a  <?php echo $h_or_d; ?></p><br>
-        <p style="font-size:30px">References: <?php echo $ref; ?></p><br> 
-
-        <button onclick="document.location='q2.php'">Search Again</button>       
+            <html lang="en">
+            <head>
+                <title>Biodata</title>
+                <div style= "text-align:center">
+                    <p style="font-size:30px">Name: <?php echo $name; ?></p> <br>
+                    <p style="font-size:30px">Roll Number: <?php echo $rollno; ?></p><br>
+                    <p style="font-size:30px">D.O.B: <?php echo $dob; ?></p><br>
+                    <p style="font-size:30px">Address: <?php echo $address; ?></p><br>
+                    <p style="font-size:30px">Mobile Number: <?php echo $mobile; ?></p><br>
+                    <p style="font-size:30px">Email ID: <?php echo $email; ?></p><br>
+                    <p style="font-size:30px">Semester Wise SGPA's:</p><br>
+                    <p style="font-size:25px">Semester 1: <?php echo $s1; ?></p><br>
+                    <p style="font-size:25px">Semester 2: <?php echo $s2; ?></p><br>
+                    <p style="font-size:25px">Semester 3: <?php echo $s3; ?></p><br>
+                    <p style="font-size:25px">Semester 4: <?php echo $s4; ?></p><br>
+                    <p style="font-size:25px">Semester 5: <?php echo $s5; ?></p><br>
+                    <p style="font-size:25px">Semester 6: <?php echo $s6; ?></p><br>
+                    <p style="font-size:25px">Semester 7: <?php echo $s7; ?></p><br>
+                    <p style="font-size:25px">Semester 8: <?php echo $s8; ?></p><br>
+                    <p style="font-size:30px">CGPA: <?php echo $cgpa; ?></p><br>
+                    <p style="font-size:30px">Hobbies: <?php echo $hobbies; ?></p><br>
+                    <p style="font-size:30px">I am a  <?php echo $h_or_d; ?></p><br>
+                    <p style="font-size:30px">References: <?php echo $ref; ?></p><br> 
             
-    </div>
-    
-</head>
-<body>
-    
-</body>
-</html>
+                    <button onclick="document.location='q2.php'">Search Again</button>       
+                        
+                </div>
+                
+            </head>
+            <body>
+                
+            </body>
+            </html>
+
+
+
+
 
 
