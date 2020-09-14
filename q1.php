@@ -5,10 +5,30 @@
     </head>    
     <body>
         <main>
+            <!-- this is the where the main front end begins
+            use the form tag from html ...you have used it before i think..
+            still ... rest of it self explanotry..
+            
+            
+             -->
+
+
+
             <h1 style="text-align:center">Biodata</h1>
             <form action="q1-redirect.php" method="post" style="text-align:center">
+
+            <!-- please note the action tag in it and make sure you have given the right output php file like when we submit the form the give file will be where we go  -->
                 <label>Name:</label><br>
                 <input type="text" name="name" placeholder="Name"><br><br>
+
+                <!-- here the name tag is used as some sort of id. like using this name only we can access this data in the backend php file
+                    for eg.<input type="text" name="rollno" placeholder="Roll No"><br><br> 
+                    here rollno is the id that we call in backend php file for accesing the data that we have entered in the particular text field.
+
+
+                
+                
+                 -->
 
                 <label>Roll Number:</label><br>
                 <input type="text" name="rollno" placeholder="Roll No"><br><br>

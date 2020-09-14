@@ -1,13 +1,25 @@
 <?php
 
+// this the backend part of the file...
+
+
+
 $conn = mysqli_connect('localhost','root','','ass1');
 
     if(!$conn){
-        echo 'Connection error'.mysqli_connect_error();
+        echo 'Connection error'.mysqli_connect_error();     // lines 7 to 11 is used to connect the the database...in my case the username is 'root'that is why  have passed 'root' ,
+        //  mysqli_connect(name of the server ours is local server, username of the database, password my case i have none, then the main database name ) 
     }
 
-if (isset($_POST['submit'])){
-    $name=mysqli_real_escape_string($conn,$_REQUEST['name']);
+//dont worry if you are wondering dafuq is sql and what username and how to access all of that...i'll teach you that shortly..
+// $conn is where we store the so called "connection" we got the from passing the query. connection has the info on database we have asked to connect
+// and line 9 that is the if statement is for debuggin purpoes , is suppose connection has failed.
+
+if (isset($_POST['submit'])){     //here this isset() variable checks if we have pressed the submit button or not....
+    //$_POST is a global varibale that basically retrieves data from html that we have jst now submitted
+    $name=mysqli_real_escape_string($conn,$_REQUEST['name']);  //in this mysqli_real_escape_string...idk what is the purpose of it, but still the person in the video told to put it as safety or something like that, 
+    //You may also think what is the diff betwenn $POST and $REquest....idk that also.....
+    // in the above function we pass the connection and the input that we gave and i store in a varibale named $name
     $rollno=mysqli_real_escape_string($conn,$_REQUEST['rollno']);
     $dob=$_POST['dob'];
     $address=mysqli_real_escape_string($conn,$_REQUEST['address']);
@@ -29,12 +41,24 @@ if (isset($_POST['submit'])){
 
     $sql = "INSERT INTO biodata (name,rollno,dob,address,mobile,email,s1,s2,s3,s4,s5,s6,s7,s8,cgpa,hobbies,h_or_d,ref) VALUES('$name','$rollno',STR_TO_DATE('$dob', '%Y-%m-%d'),'$address','$mobile','$email',$s1,'$s2','$s3','$s4','$s5','$s6','$s7','$s8','$cgpa','$hobbies','$h_or_d','$ref')";
 
+
+    //this is where we make our string of sql querie....like we make up the querie that we want to pass into the db...basically this php admin thingy il thanne we can run these sql queries like "gcc q1.c" more like a command...
+
+    // so the command tht we are gonna pass to DB and ultimately executing it to store the value is all about line 42......dont worry about the STR_TO_DATE part.....i'll explain it after you understand the basics...ellam kooode paranja ninakk poga avvum...
+
+    // in short the sql query syntax can be minimalised as "INSERT INTO biodata(name of the varibale defined in DB) VALUES(varibale that we want to pass ie above variables that we retrieved from the html)
+
     if(!(mysqli_query($conn,$sql))){
         echo mysqli_error($conn);
     }
 
+    //above line is just to execute the thing....`like in varible sql, ie $sql we have stored the command and now we have to simply pass the varibale...that is what sqli_query() does.. mysqil_query(connection,command)
+    //the thing that is inside the if statement is to check if the command is succesfully executed, if not then the error will be printed..
+
 }
 ?>
+
+<!-- ignore the below html code, what it basically does is print whatever data we have entered, for now lets concentrate on php and sql... -->
 
 <!DOCTYPE html>
 <html lang="en">
